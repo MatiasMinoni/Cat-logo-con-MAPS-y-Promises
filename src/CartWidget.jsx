@@ -1,4 +1,4 @@
-import { FcPaid } from "react-icons/fc";
+import { FcShipped } from "react-icons/fc";
 import React from 'react';
 
 
@@ -6,7 +6,7 @@ import React from 'react';
 const CartWidget = () => {
     return (
 
-  <p > <FcPaid/> </p>
+  <p > <FcShipped/> </p>
  
 );
 }

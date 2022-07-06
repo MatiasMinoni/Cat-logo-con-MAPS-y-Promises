@@ -13,9 +13,11 @@ return (
 <>
 
 
-  <MiComponente></MiComponente>
-
-<ItemLista></ItemLista>
+ 
+{/* <MiComponente>
+</MiComponente> */}
+<ItemLista>
+</ItemLista>
 
   </>   
 )

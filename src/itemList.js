@@ -1,6 +1,9 @@
-import React from "react";
 
 import './App.css';
+import React from "react";
+
+import { FcDoughnutChart } from "react-icons/fc";
+
 
 import { useState, useEffect } from "react";
 
@@ -8,6 +11,9 @@ import { useState, useEffect } from "react";
 export const ItemLista = (props) => {
  
 const [products, setProducts] = useState([]);
+const [error, setError] = useState(false);
+const [loading, setLoading] = useState(true);
+
 useEffect(()=>{
 const getProducts = async () => {
 
@@ -17,21 +23,25 @@ const data= await response.json ();
 setProducts(data)
 
 }
-catch(error){
-  console.log(error);
+catch(err){
+  console.err(err);
+  setError(true)
+
 }
- 
+ finally{
+  setLoading(false)
+}
 
 
 }
 getProducts();
-}
-
-,[])  
+},[]);  
 
 
 return (
 <>
+{loading ? <img src="https://img.icons8.com/color/48/000000/installing-updates--v2.png"/>: null}
+{error ? <p>Error</p> : null}
 
 {products.map((product) =>
   <div class="row">
