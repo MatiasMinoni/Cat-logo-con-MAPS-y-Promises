@@ -1,25 +1,41 @@
+import React, { useState, useEffect } from "react";
+import ItemCount from './ItemCount';
+import Itemlist from "./ItemList";
 
-import { useState, useEffect } from "react";
-import {MiComponente} from './itemCount.js';
-import { ItemLista } from "./itemList";
-import './App.css';
+const ItemListContainer =  (prop) => {
 
-const ItemListContainer = (props) => {
+    const [productos, setProductos] = useState([]);
+    const [error, setError] = useState (false);
+    const [loading, setLoading] = useState (true);
+    
+    useEffect(() =>{
+      const getProducts = async () =>{
+      try {const response = await fetch('https://fakestoreapi.com/products');
+           const data = await response.json();
+           setProductos(data);
+          }
+        catch(err) {
+          console.log(err);
+          setError(true);
+        }
+        finally{
+          setLoading(false);
+        }
+        
+      }
+      getProducts();
+    },[]);
 
-
-console.log(props)
-
-return (
-<>
-
-
- 
-{/* <MiComponente>
-</MiComponente> */}
-<ItemLista>
-</ItemLista>
-
-  </>   
-)
+   
+    return (
+        <>
+     
+        {loading ? <p>cargando...</p> : error ? <p>Error....</p> : <p></p>}
+        <Itemlist productos={productos}/>
+        <ItemCount stock = {8} initial = {1}/>
+        </>
+    )
 }
-export default ItemListContainer;
+
+export default ItemListContainer
+
