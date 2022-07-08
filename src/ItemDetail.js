@@ -4,16 +4,24 @@ const ItemDetail = ({detail}) => {
 
 
     return(
-        <div key={detail.id} class="card small sticky-action">
-     <h2>{detail.title}</h2>
- 
-     <div class="card-action">
-        <p>${detail.price}</p>
-        <p>{detail.description}</p>
-     </div>
- 
-     <div class="card-reveal"></div>
-     </div>
+        <div key="id" class="row ">
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img  src=""  alt=""></img>
+              <span  class="card-title">Titulo</span>
+            </div>
+            <div class="card-content">
+              <p >Precio: </p>
+              <p >description</p> 
+            </div>
+            <div class="card-action">
+              <a href="id">Ver mas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     )
 }
 

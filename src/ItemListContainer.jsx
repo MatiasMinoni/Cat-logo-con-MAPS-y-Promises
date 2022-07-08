@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ItemCount from './ItemCount';
-import Itemlist from "./ItemList";
+import Itemlista from "./ItemList";
+import MiComponente from "./ItemCount";
 
 const ItemListContainer =  (prop) => {
 
@@ -31,8 +31,8 @@ const ItemListContainer =  (prop) => {
         <>
      
         {loading ? <p>cargando...</p> : error ? <p>Error....</p> : <p></p>}
-        <Itemlist productos={productos}/>
-        <ItemCount stock = {8} initial = {1}/>
+        <Itemlista productos={productos}/>
+        <MiComponente stock = {8} initial = {1}/>
         </>
     )
 }

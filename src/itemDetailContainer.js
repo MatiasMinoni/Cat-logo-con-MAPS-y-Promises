@@ -24,7 +24,8 @@ const ItemDetailContainer = () => {
  },[]);
 
     return(
-        <>
+        <>{loading ? <p>Loading...</p> : error ? <p>Error...</p> : 'Todo bien'}
+        <ItemDetail detail={detail} />
         </>
         
     )
